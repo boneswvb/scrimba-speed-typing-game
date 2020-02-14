@@ -1,25 +1,34 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <p>Wim</p>
+
+  const [text, setText] = useState("")
+  const [timer, setTimer] = useState(25)
+
+  const handleChange = (e) => {
+      const {value} = e.target
+      setText(value)
+    }
+
+  const wordCount = (text) => {
+    const words =  text.trim().split(" ")
+    return words.filter(filteredWords => filteredWords !== "").length
+  }
+  
+   return (
+    <div>
+      <h1>How fast do you type?</h1>
+      <textarea 
+          name="data" 
+          value={text.data}
+          onChange={handleChange}  />
+      <h4>Time remaining: {timer}</h4>
+      <button onClick={() => console.log(wordCount(text))}>Start</button>
+      <h1>Word count: ???</h1>
     </div>
   );
 }
 
 export default App;
 
-/**
- * Challenge: build the basic structure of our game
- * 
- * 1. <h1> title at the top
- * 2. <textarea> for the box to type in 
- *      (tip: React normalizes <textarea /> to be more like <input />, 
- *      so it can be used as a self-closing element and uses the `value` property
- *      to set its contents)
- * 3. <h4> ti display the amount of time remaining
- * 4. <button> to start the game
- * 5. Another <h1> to display the word count
- */
