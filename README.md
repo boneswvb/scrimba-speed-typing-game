@@ -50,3 +50,14 @@ step 5
  * 
  * Make it so clicking the Start button starts the timer instead of it starting on refresh
  * (Hint: use a new state variable to indicate if the game should be running or not)
+
+ step 6 
+
+ * Challenge:
+ * 
+ * When the timer reaches 0, count the number of words the user typed in 
+ * and display it in the "Word count" section
+ * 
+ * After the game ends, make it so the user can click the Start button again
+ * to play a second time
+ 
