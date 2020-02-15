@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 
 function App() {
 
   const [text, setText] = useState("")
-  const [timer, setTimer] = useState(25)
+  const [timeRemaining, setTimeRemaining] = useState(5)
+  const [startTimer, setStartTimer] = useState(false)
 
   const handleChange = (e) => {
       const {value} = e.target
@@ -15,17 +16,39 @@ function App() {
     const words =  text.trim().split(" ")
     return words.filter(filteredWords => filteredWords !== "").length
   }
+
+  const handleStart = () => {
+    return(
+      setStartTimer(true)
+    )
+  }
+  
+  useEffect(() => {
+    if(timeRemaining > 0) {
+      setTimeout(() => {
+        setTimeRemaining(time => time - 1)
+      }, 1000)
+    }
+  }, [timeRemaining])
   
    return (
     <div>
+
       <h1>How fast do you type?</h1>
+
       <textarea 
           name="data" 
           value={text.data}
           onChange={handleChange}  />
-      <h4>Time remaining: {timer}</h4>
-      <button onClick={() => console.log(wordCount(text))}>Start</button>
+
+      <h4>Time remaining: {timeRemaining}</h4>
+
+      <button 
+        onClick={() => console.log(wordCount(text))}>Start
+      </button>
+
       <h1>Word count: ???</h1>
+
     </div>
   );
 }
