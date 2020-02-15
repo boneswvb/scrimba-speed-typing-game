@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import './App.css';
+import React, {useState, useEffect} from "react"
+import "./App.css"
 
 function App() {
     const STARTING_TIME = 5
@@ -30,6 +30,8 @@ function App() {
         setWordCount(calculateWordCount(text))
     }
     
+    // https://www.google.com/search?q=Disable+button+in+react
+    
     useEffect(() => {
         if(isTimeRunning && timeRemaining > 0) {
             setTimeout(() => {
@@ -46,9 +48,15 @@ function App() {
             <textarea
                 onChange={handleChange}
                 value={text}
+                disabled={!isTimeRunning}
             />
             <h4>Time remaining: {timeRemaining}</h4>
-            <button onClick={startGame}>Start</button>
+            <button 
+                onClick={startGame}
+                disabled={isTimeRunning}
+            >
+                Start
+            </button>
             <h1>Word count: {wordCount}</h1>
         </div>
     )
