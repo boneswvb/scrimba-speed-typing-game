@@ -47,7 +47,7 @@ step2
 step 5
 
  * Challenge:
- * 
+  * 
  * Make it so clicking the Start button starts the timer instead of it starting on refresh
  * (Hint: use a new state variable to indicate if the game should be running or not)
 
