@@ -60,4 +60,22 @@ step 5
  * 
  * After the game ends, make it so the user can click the Start button again
  * to play a second time
+ *
+ *Create start and end game functions
+
+ step 7
+ *
+ * Make the input box focus (DOM elements have a method called .focus()) 
+ * immediately when the game starts
+
+	step 8
+
+ * Challenge:
+ * 
+ * Move the "business logic" into a custom hook, which will provide
+ * any parts of state and any functions to this component to use.
+ * 
+ * You can easily tell which parts the component needs by looking at 
+ * the variables being used inside the `return`ed markup below.
+
  
